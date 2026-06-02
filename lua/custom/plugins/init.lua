@@ -3,6 +3,20 @@
 --
 -- See the kickstart.nvim README for more information
 
+vim.pack.add({
+  {
+    src = 'https://github.com/JavaHello/spring-boot.nvim',
+    version = '218c0c26c14d99feca778e4d13f5ec3e8b1b60f0',
+  },
+  'https://github.com/MunifTanjim/nui.nvim',
+  'https://github.com/mfussenegger/nvim-dap',
+
+  'https://github.com/nvim-java/nvim-java',
+})
+
+require('java').setup()
+vim.lsp.enable('jdtls')
+
 -- Iterate over all Lua files in the plugins directory and load them
 local plugins_dir = vim.fs.joinpath(vim.fn.stdpath 'config', 'lua', 'custom', 'plugins')
 for file_name, type in vim.fs.dir(plugins_dir) do
